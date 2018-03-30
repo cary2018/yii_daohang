@@ -1,0 +1,1 @@
+<?php/** * Created by PhpStorm. * User: asusa * Date: 2018/3/27/0027 * Author: Cary.He * Contact QQ  : 373889161($S$-Memory) * email: 373889161@qq.com * Time: 09:12 */$this->title = '关于';$this->params['breadcrumbs'][] = $this->title;?><div class="site-about">    <h1>关于本站</h1>    <p>本站持续研发中，会增加更多丰富的功能和内容，敬请期待。</p></div>

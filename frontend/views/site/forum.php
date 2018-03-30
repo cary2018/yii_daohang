@@ -1,0 +1,1 @@
+<?php/** * Created by PhpStorm. * User: asusa * Date: 2018/3/27/0027 * Author: Cary.He * Contact QQ  : 373889161($S$-Memory) * email: 373889161@qq.com * Time: 09:00 */$this->title='社区';$this->params['breadcrumbs'][] = $this->title;
