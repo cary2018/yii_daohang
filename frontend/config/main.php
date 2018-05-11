@@ -13,6 +13,24 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\YiiAsset' => [
+                    'js' => [],  // 去除 yii.js
+                    'sourcePath' => null,  // 防止在 frontend/web/asset 下生产文件
+                ],
+
+                'yii\web\JqueryAsset' => [
+                    'js' => [],  // 去除 jquery.js
+                    'sourcePath' => null,  // 防止在 frontend/web/asset 下生产文件
+                ],
+
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'js' => [],  // 去除 bootstrap.js
+                    'sourcePath' => null,  // 防止在 frontend/web/asset 下生产文件
+                ],
+            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

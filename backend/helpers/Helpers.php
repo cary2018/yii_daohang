@@ -103,7 +103,18 @@ class Helpers
         }
         return $tree;
     }
-
+    /**
+     * @param $va
+     * @return string
+     * 层级隔离线
+     */
+    public function line($va){
+        $af = '';
+        for($i=0;$i<$va;$i++){
+            $af .= '---';
+        }
+        return $af;
+    }
     /**
      * @param $id
      * @param int $show
@@ -192,18 +203,7 @@ class Helpers
         return substr($reuid,0,strlen($reuid)-1);
     }
 
-    /**
-     * @param $va
-     * @return string
-     * 层级隔离线
-     */
-    public function line($va){
-        $af = '';
-        for($i=0;$i<$va;$i++){
-            $af .= '---';
-        }
-        return $af;
-    }
+
     /**
      * @param $arr
      * @return int

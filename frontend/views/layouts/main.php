@@ -11,6 +11,18 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
 AppAsset::register($this);
+error_reporting(0); //抑制所有错误信息
+
+$s_time = date("Y年m月d日 H:i:s")." &nbsp;星期" . mb_substr( "日一二三四五六",date("w"),1,"utf-8" );  //输入时间格式
+
+//ajax调用实时刷新
+if ($_GET['act'] == "rt")
+{
+    $arr=array('s_time'=>"$s_time");
+    $j_arr=json_encode($arr);
+    echo $_GET['callback'],'(',$j_arr,')';
+    exit;
+}
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -23,14 +35,26 @@ AppAsset::register($this);
     <?php $this->head() ?>
     <?= Html::cssFile('@web/css/style.css?'.uniqid()); ?>
     <?=Html::jsFile('@web/js/jquery-1.9.1.min.js')?>
+    <script type="text/javascript">
+        <!--
+        $(document).ready(function(){getJSONData();});
+        function getJSONData()
+        {
+            setTimeout("getJSONData()", 1000);
+            $.getJSON('?act=rt&callback=?', displayData);
+        }
+        function displayData(dataJSON)
+        {
+            $("#s_time").html(dataJSON.s_time);
+        }
+        -->
+    </script>
 </head>
 <body>
 
 <?=Html::jsFile('@web/js/public.js?'.uniqid()); ?>
 <?php $this->beginBody() ?>
-<script type="text/javascript">
-    setInterval("show_cur_times()",100);
-</script>
+
 <div class="wrap">
     <?php
     NavBar::begin([
@@ -41,7 +65,9 @@ AppAsset::register($this);
         ],
     ]);
     ?>
-    <div id="showtimes" class="cstime"></div>
+    <div id="showtimes" class="cstime">
+        <span id="s_time"><?php echo $s_time;?></span>
+    </div>
     <?php
     $menuItems = [
         ['label' => '首页', 'url' => ['/site/index']],

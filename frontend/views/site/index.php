@@ -2,9 +2,6 @@
 
 /* @var $this yii\web\View */
 
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-
 $this->title = '上网导航';
 ?>
 
@@ -145,7 +142,7 @@ $this->title = '上网导航';
                             <p><?=$va['lunarYear']?></p>
                             <p>【<?=$va['animalsYear']?>年】</p>
                             <?php if(isset($va['holiday'])){?>
-                                <div class="alm_lunar_date"></div>
+                                <div class="alm_lunar_date"><?php echo $va['holiday'];?></div>
                             <?php }?>
                             <div class="yj_box">
                                 <div class="yi" title="<?=$va['suit']?>"><span style="font-size: 25px;"><b>宜 : </b></span><?=$va['suit']?></div>
