@@ -162,7 +162,7 @@ $this->title = '上网导航';
         <ul class="rlist">
             <?php
             if($news){
-                if($news['error_code']=='0'){
+                if($news['error_code']=='0' && $news['result']['data'] != null){
                     $i=1;
                     foreach($news['result']['data'] as $ke=>$va)
                     {
@@ -179,7 +179,7 @@ $this->title = '上网导航';
                         }
                     }
                 }else{
-                    echo $news['error_code'].":".$news['reason'];
+                    echo $news['reason'].": 今日请求次数已达上限";
                 }
             }else{
                 echo "请求失败";
@@ -198,7 +198,7 @@ $this->title = '上网导航';
             <div>
                 <?php
                 if($shehui){
-                    if($shehui['error_code']=='0'){
+                    if($shehui['error_code']=='0' && $shehui['result']['data'] != null){
                         $i=1;
                         foreach($shehui['result']['data'] as $ke=>$va)
                         {
@@ -215,7 +215,7 @@ $this->title = '上网导航';
                             }
                         }
                     }else{
-                        echo $shehui['error_code'].":".$shehui['reason'];
+                        echo $shehui['reason'].":今日请求次数已达上限";
                     }
                 }else{
                     echo "请求失败";
@@ -225,7 +225,7 @@ $this->title = '上网导航';
             <div class="hide">
                 <?php
                 if($keji){
-                    if($keji['error_code']=='0'){
+                    if($keji['error_code']=='0' && $keji['result']['data'] != null ){
                         $i=1;
                         foreach($keji['result']['data'] as $ke=>$va)
                         {
@@ -242,7 +242,7 @@ $this->title = '上网导航';
                             }
                         }
                     }else{
-                        echo $keji['error_code'].":".$keji['reason'];
+                        echo $keji['reason'].":今日请求次数已达上限";
                     }
                 }else{
                     echo "请求失败";
@@ -252,7 +252,7 @@ $this->title = '上网导航';
             <div class="hide">
                 <?php
                 if($tiyu){
-                    if($tiyu['error_code']=='0'){
+                    if($tiyu['error_code']=='0' && $tiyu['result']['data'] != null ){
                         $i=1;
                         foreach($tiyu['result']['data'] as $ke=>$va)
                         {
@@ -269,7 +269,7 @@ $this->title = '上网导航';
                             }
                         }
                     }else{
-                        echo $tiyu['error_code'].":".$tiyu['reason'];
+                        echo $tiyu['reason'].":今日请求次数已达上限";
                     }
                 }else{
                     echo "请求失败";
@@ -279,7 +279,7 @@ $this->title = '上网导航';
             <div class="hide">
                 <?php
                 if($yule){
-                    if($yule['error_code']=='0'){
+                    if($yule['error_code']=='0' && $yule['result']['data'] != null ){
                         $i=1;
                         foreach($yule['result']['data'] as $ke=>$va)
                         {
@@ -296,7 +296,7 @@ $this->title = '上网导航';
                             }
                         }
                     }else{
-                        echo $yule['error_code'].":".$yule['reason'];
+                        echo $yule['reason'].":今日请求次数已达上限";
                     }
                 }else{
                     echo "请求失败";
